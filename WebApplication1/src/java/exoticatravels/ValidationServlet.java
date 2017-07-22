@@ -1,3 +1,5 @@
+package exoticatravels;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,6 +8,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +39,39 @@ public class ValidationServlet extends HttpServlet {
             String user=request.getParameter("uid");
             String password=request.getParameter("pwd");
             String role=request.getParameter("r1");
-            if (user.equals("admin") && pass)
+            if (user.equals("admin") && password.equals("password@123")&& role.equals("administrator"))
+            {
+                RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/WelscomeAdminServlet");
+                dispatch.forward(request,response);
+            }
+            else{
+                if (user.equals("user1")&& password.equals("user10123")&& role.equals("customer"))
+                {
+                    RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/WelcomeCustomerServlet");
+                    dispatch.forward(request, response);
+                }
+                else
+                {out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Error Page</title>");
+                out.println("<head>");
+                out.println("<body>");
+                out.println("<table border='0' bgcolor='#000080' align='top' width='100%' style='height:100px'>");
+                out.println("<tr>");
+                out.println("<td bgcolor='#000080' align='center'>");
+                out.println("<font style='font-family:'ArialRounded MT Bold', Gadget, sans-serif;' size='+4' color='#FFE4B5'>Exotica Travels</font>");
+                out.println("</td>");
+                out.println("<td bgcolor='#000080' align='left' width='180'>"
+                        + "<img src='Images/CommpanyLogo.png' width='180' height='120' align='right/>"
+                        + "</td>"
+                        + "</tr>"
+                        + "</table>"
+                        + "<font style='font-family:'Arial Rounded MT Bold;' size='+2' color='red'> Invalid User Credentials!!");
+                
+                
+                
+                }
+            }
         }
     }
 
