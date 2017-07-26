@@ -41,13 +41,13 @@ public class ValidationServlet extends HttpServlet {
             String role=request.getParameter("r1");
             if (user.equals("admin") && password.equals("password@123")&& role.equals("administrator"))
             {
-                RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/WelscomeAdminServlet");
-                dispatch.forward(request,response);
+                RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/Welcomeadminpage");
+                dispatch.forward(request, response);
             }
             else{
-                if (user.equals("user1")&& password.equals("user10123")&& role.equals("customer"))
+                if (user.equals("user1")&& password.equals("user@123")&& role.equals("customer"))
                 {
-                    RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/WelcomeCustomerServlet");
+                    RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/WelcomeCustomer");
                     dispatch.forward(request, response);
                 }
                 else

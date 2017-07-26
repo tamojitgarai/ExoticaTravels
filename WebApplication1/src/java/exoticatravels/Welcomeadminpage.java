@@ -64,12 +64,9 @@ public class Welcomeadminpage extends HttpServlet {
                     + "</tr>"
                     + "</table>"
                     + "<br>"
-                    + "<font color='darkblue' size='+2'>Welcome to the Exotica Travels EWebsite!!"
+                    + "<font color='darkblue' size='+2'>Welcome to the Exotica Travels Website!!"
                     + "</body>"
                     + "</html>");
-                   
-            
-            out.println("<h1>Servlet Welcomeadminpage at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

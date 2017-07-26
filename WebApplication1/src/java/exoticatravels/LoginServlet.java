@@ -65,13 +65,11 @@ public class LoginServlet extends HttpServlet {
                     + "<tr><td bordercolor='white'> Role:<td bordercolor='white'><input type='Radio' value='administrator' name='r1'>Administrator"
                     + "<td bordercolor='white'><input type='Radio' value='customer' name='r1'>Customer"
                     + "<tr><td bordercolor='white'></br>"
-                    + "<tr><td bordercolor='white'<input type='SUBMIT' value='Submit'>"
+                    + "<tr><td bordercolor='white'><input type='SUBMIT' value='Submit'>"
                     + "<td bordercolor='white'<input type='RESET' value='Reset'>"
                     + "</table>"
                     + "</body>"
                     + "</html>");
-           
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

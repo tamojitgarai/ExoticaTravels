@@ -40,12 +40,12 @@ public class HomePage extends HttpServlet {
             out.println("<title>Servlet NewServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<table border='0' bgcolor='#000080' align='top'width='100%' style='height:100px'>");
+            out.println("<table border='0' bgcolor='#000080' align='top' width='100%' style='height:100px'>");
             out.println("<tr>");
-            out.println("<td bgcolor='#000080'align='centre");
-            out.println("<font style='font-family:'Arial Rounded MT Bold',Gadget, sans-serif;'size='+4' color='#FFE4B5'>Exotica Travels</font>");
+            out.println("<td bgcolor='#000080' align='center'>");
+            out.println("<font style=font-family:'Arial Rounded MT Bold',Gadget, sans-serif;' size='+4' color='#FFE4B5'>Exotica Travels</font>");
             out.println("</td");
-            out.println("<td bgcolor='#000080' align='left' width='150'");
+            out.println("<td bgcolor='#000080' align='left' width='150'>");
             out.println("<img src='images/companyLogo.png' width='200' height='120' align='right'/>");
             out.println("</td>");
             out.println("</tr>");
@@ -58,19 +58,18 @@ public class HomePage extends HttpServlet {
                     + " To avail the travel package services kindly log on to the website.</B></I>");
             out.println("<br/>");
             out.println("<form method='Post' action ='SubmitServlet'>");
-            out.println("<table cellspacing='10' align 'centre'>");
+            out.println("<table cellspacing='10' align='center'>");
             out.println("<tr>");
-            out.println("<td><font color='darkblue' size='+2'> LOGIN as:");
+            out.println("<td><font color='darkblue' size='+2'> LOGIN AS:");
             out.println("</tr>");
             out.println("</td>");
             out.println("</table>");
-            out.println("<table cellspacing='10'align='center' border='2'bordercolor='lack'>");
+            out.println("<table cellspacing='10'align='center' border='2'bordercolor='black'>");
             out.println("<tr><td bordercolor='white'><input type='radio' value='existinguser' name='r2' CHECKED> Existing User");
             out.println("<tr><td bordercolor='white'><input type='radio' value='newuser' name='r2' >New User");
             out.println("<tr><td bordercolor='white'><input type='submit' value='submit'>");
             out.println("</table>");
-            
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
+            out.println("</form>");
             out.println("</body>");
             out.println("</html>");
         }

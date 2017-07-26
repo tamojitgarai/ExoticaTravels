@@ -59,11 +59,9 @@ public class WelcomeCustomer extends HttpServlet {
                     + "<td><font color='darkblue' size='+1'><a href='GetLogDetails'>Get Log Details</a></td>"
                     + "</tr></table>"
                     + "<br>"
-                    + "<font color='darkblue' size='+2'>Welcome to the Exotica Travels EWebsite!!"
+                    + "<font color='darkblue' size='+2'>Welcome to the Exotica Travels Website!!"
                     + "</body>"
                     + "</html>");
-            
-            out.println("<h1>Servlet WelcomeCustomer at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
