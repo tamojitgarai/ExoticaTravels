@@ -1,14 +1,12 @@
-package exoticatravels;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package exoticatravels;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author TAMOJIT
  */
-@WebServlet(urlPatterns = {"/ValidationServlet"})
-public class ValidationServlet extends HttpServlet {
+@WebServlet(name = "CartServlet", urlPatterns = {"/CartServlet"})
+public class CartServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,51 +29,46 @@ public class ValidationServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    protected void displayCart(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException
+    { 
+        PrintWriter pw= response.getWriter();
+        HttpSession session = request.getSession(false);
+        String destination=
+        session.getAttribute("selDestination").toString();
+        String hotel= session.getAttribute("selHotel").toString();
+        String totalDays=
+        session.getAttribute("numdays").toString();
+        String Airline=
+        session.getAttribute("selAirline").toString();
+        pw.println("<table>");
+        pw.println("<tr><td>");
+        pw.println("<font color='darkblue'>Destination:</font></td>");
+        pw.println("<td><font color='darkblue'>"+destination+"</font></td></tr>");
+        pw.println("<tr><td>");
+        pw.println("<font color='darkblue'>Hotel:</font></td>");
+        pw.println("<td><font color='darkblue'>"+hotel+"</font></td></tr>");
+        pw.println("<tr><td>");
+        pw.println("<font color='darkblue'>Total No. Of Days for  stay:</font></td>");
+        pw.println("<td><font color='darkblue'>"+totalDays+"</font></td></tr>");
+        pw.println("<tr><td>");
+        pw.println("<font color='darkblue'>Airline:</font></td>");
+        pw.println("<td><font color='darkblue'>"+Airline+"</font></td></tr>");
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String user=request.getParameter("uid");
-            String password=request.getParameter("pwd");
-            String role=request.getParameter("r1");
-            if (user.equals("admin") && password.equals("password@123")&& role.equals("administrator"))
-            {   
-                HttpSession session= request.getSession();
-                session.setAttribute("User", user);
-                RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/Welcomeadminpage");
-                dispatch.forward(request, response);
-            }
-            else{
-                if (user.equals("user1")&& password.equals("user@123")&& role.equals("customer"))
-                {
-                     HttpSession session= request.getSession();
-                    session.setAttribute("User", user);
-                    RequestDispatcher dispatch=getServletContext().getRequestDispatcher("/WelcomeCustomer");
-                    dispatch.forward(request, response);
-                }
-                else
-                {out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Error Page</title>");
-                out.println("<head>");
-                out.println("<body>");
-                out.println("<table border='0' bgcolor='#000080' align='top' width='100%' style='height:100px'>");
-                out.println("<tr>");
-                out.println("<td bgcolor='#000080' align='center'>");
-                out.println("<font style='font-family:'ArialRounded MT Bold', Gadget, sans-serif;' size='+4' color='#FFE4B5'>Exotica Travels</font>");
-                out.println("</td>");
-                out.println("<td bgcolor='#000080' align='left' width='180'>"
-                        + "<img src='Images/CommpanyLogo.png' width='180' height='120' align='right/>"
-                        + "</td>"
-                        + "</tr>"
-                        + "</table>"
-                        + "<font style='font-family:'Arial Rounded MT Bold;' size='+2' color='red'> Invalid User Credentials!!");
-                
-                
-                
-                }
-            }
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet CartServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet CartServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
